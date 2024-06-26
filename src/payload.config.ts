@@ -1,4 +1,3 @@
-// storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
@@ -15,6 +14,10 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    autoLogin: {
+      email: 'demo@payloadcms.com',
+      password: 'password',
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
@@ -26,7 +29,21 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  plugins: [
-    // storage-adapter-placeholder
-  ],
+  onInit: async (payload) => {
+    const users = await payload.find({
+      collection: 'users',
+      limit: 1,
+    })
+
+    if (users.docs.length === 0) {
+      await payload.create({
+        collection: 'users',
+        data: {
+          email: 'demo@payloadcms.com',
+          password: 'password',
+        },
+      })
+    }
+  },
+  serverURL: 'http://localhost:3000',
 })

@@ -19,6 +19,7 @@
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
     "cross-env": "^7.0.3",
+    "exifr": "^7.1.3",
     "graphql": "^16.8.1",
     "next": "15.0.0-rc.0",
     "payload": "beta",
@@ -47,5 +48,6 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-beta.2",
     "@types/react-dom": "npm:types-react-dom@19.0.0-beta.2"
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
