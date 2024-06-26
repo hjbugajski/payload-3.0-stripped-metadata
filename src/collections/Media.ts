@@ -38,13 +38,13 @@ export const Media: CollectionConfig = {
   upload: {
     mimeTypes: ['image/*'],
     // uncomment imageSize to demo metadata being stripped
-    imageSizes: [
-      {
-        name: 'thumbnail',
-        width: 400,
-        height: 300,
-      },
-    ],
+    // imageSizes: [
+    //   {
+    //     name: 'thumbnail',
+    //     width: 400,
+    //     height: 300,
+    //   },
+    // ],
   },
   fields: [
     {
